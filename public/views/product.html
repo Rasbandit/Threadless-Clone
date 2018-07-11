@@ -1,0 +1,58 @@
+<img src="https://cdn-images.threadless.com/threadless-media/navigation/sitewide8.jpg?q=85" alt="Free Shipping" class="promo-banner" />
+
+<div class="artist-bar">
+   <h1>{{product.name}}</h1>
+   <h2>{{product.artist}}</h2>
+</div>
+
+<div class="genders">
+   <div class="genders-box" ng-class="{'genders-box-active': focus == 'male' }" ng-click="changeMale()">
+      Mens
+   </div>
+   <div class="genders-box" ng-class="{'genders-box-active': focus == 'female' }" ng-click="changeFemale()">
+      Women
+   </div>
+</div>
+   <div class="black-bar-thick"></div>
+
+<div class="bulk">
+
+   <div class="product_image">
+      <main>
+      <img class="img-main" src="{{main_image}}" alt="" />
+      </main>
+      <div class="thumbnails">
+         <div class="thumbnails-repeater" ng-repeat="product in images">
+            <img src="{{product.img}}" alt="{{product.img}}" ng-click="updateMain(product.img)" ng-class="{'thumbnails-repeater-border': main_image === product}"/>
+         </div>
+      </div>
+   </div>
+   <div class="column">
+      <div ng-repeat="item in purchaseable">
+         <div class="item-module" ng-click="updateMain(item.img)">
+            <div class="split">
+               <div>
+                  <h2><span class="pink">{{item.price | currency}}</span> {{item.type}}</h2>
+               </div>
+               <div class="arrow"></div>
+            </div>
+            <div class="modular" ng-class="{'modular-show': item.show == true}">
+               <div class="sizes">
+                  <div class="size-box" ng-click="item.size='small'" ng-class="{'filled-in': item.size === 'small'}">S</div>
+                  <div class="size-box" ng-click="item.size='medium'" ng-class="{'filled-in': item.size === 'medium'}">M</div>
+                  <div class="size-box" ng-click="item.size='large'" ng-class="{'filled-in': item.size === 'large'}">L</div>
+                  <div class="size-box" ng-click="item.size='extra large'" ng-class="{'filled-in': item.size === 'extra large'}">XL</div>
+                  <div class="size-box" ng-click="item.size='extra extra large'" ng-class="{'filled-in': item.size === 'extra extra large'}">XXL</div>
+               </div>
+               <h3>
+                  This item comes with the Threadless Happiness Guarantee
+               </h3>
+               <div class="add-to-cart" ng-click="addToCart(item.art, item.img, item.size, item.type, item.price)">
+                  add to cart
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </div>
+</div>
